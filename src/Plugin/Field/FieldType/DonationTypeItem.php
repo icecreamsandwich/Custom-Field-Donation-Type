@@ -30,10 +30,10 @@ class DonationTypeItem extends FieldItemBase {
   /**
    * {@inheritdoc}
    */
-  // public function isEmpty() {
-  //   $value = $this->get('value')->getValue();
-  //   return $value === NULL || $value === '';
-  // }
+  public function isEmpty() {
+    $value = $this->get('value')->getValue();
+    return $value === NULL || $value === '';
+  }
 
   /**
    * {@inheritdoc}

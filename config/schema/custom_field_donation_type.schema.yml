@@ -5,3 +5,27 @@ field.value.custom_field_donation_type_donation_type:
     value:
       type: label
       label: Value
+
+field.field_settings.custom_field_donation_type_donation_type:
+  type: mapping
+  label: 'FIELDNAME settings'
+  mapping:
+    size:
+      type: string
+      label: 'Size'
+
+field.widget.settings.custom_field_donation_type_donation_type:
+  type: mapping
+  label: 'WIDGET NAME widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+
+field.formatter.settings.custom_field_donation_type_donation_type:
+  type: mapping
+  label: 'FORMATTER NAME text length'
+  mapping:
+    text_length:
+      type: string
+      label: 'Text Length'
