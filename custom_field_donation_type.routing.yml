@@ -1,0 +1,7 @@
+custom_field_donation_type.example:
+  path: '/custom-field-donation-type/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\custom_field_donation_type\Controller\CustomFieldDonationTypeController::build'
+  requirements:
+    _permission: 'access content'

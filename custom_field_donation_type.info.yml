@@ -1,0 +1,5 @@
+name: custom_field_donation_type
+type: module
+description: Donation type custom field
+package: Custom
+core: 8.x

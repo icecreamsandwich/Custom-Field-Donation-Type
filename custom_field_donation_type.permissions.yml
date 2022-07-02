@@ -1,0 +1,4 @@
+administer custom_field_donation_type configuration:
+  title: 'Administer custom_field_donation_type configuration'
+  description: 'Optional description.'
+  restrict access: true
