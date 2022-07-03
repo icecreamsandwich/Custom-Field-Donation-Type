@@ -8,4 +8,4 @@ Module name : custom_field_donation_type
 
 And then custom field is available to use in any content type 
 
-![Create Donation Type _ Drush Site-Install](https://user-images.githubusercontent.com/3961511/177009819-c36d688c-3406-4bf9-a203-ce3cf7cec25a.gif)
+![Demo](https://user-images.githubusercontent.com/3961511/177011330-a5a4e2eb-4c27-4d50-8a4a-b8d87534136f.gif)
