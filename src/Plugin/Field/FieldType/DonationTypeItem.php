@@ -7,6 +7,7 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\TypedData\DataDefinition;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Defines the 'custom_field_donation_type_donation_type' field type.
@@ -15,8 +16,8 @@ use Drupal\Core\TypedData\DataDefinition;
  *   id = "custom_field_donation_type_donation_type",
  *   label = @Translation("Donation Type"),
  *   category = @Translation("General"),
- *   default_widget = "custom_field_donation_type_donation_type",
- *   default_formatter = "custom_field_donation_type_donation_type"
+ *   default_widget = "custom_field_donation_type_widget",
+ *   default_formatter = "custom_field_donation_type_formatter"
  * )
  *
  * @DCG
@@ -98,5 +99,37 @@ class DonationTypeItem extends FieldItemBase {
     $values['value'] = $random->word(mt_rand(1, 50));
     return $values;
   }
+
+  /**
+ * {@inheritdoc}
+ */
+public static function defaultFieldSettings() {
+  return [
+    // Declare a single setting, 'size', with a default
+    // value of 'large'
+    'size' => 'large',
+  ] + parent::defaultFieldSettings();
+}
+
+// /**
+//  * {@inheritdoc}
+//  */
+// public function fieldSettingsForm(array $form, FormStateInterface $form_state) {
+  
+//   $element = [];
+//   // The key of the element should be the setting name
+//   $element['size'] = [
+//     '#title' => $this->t('Size'),
+//     '#type' => 'select',
+//     '#options' => [
+//       'small' => $this->t('Small'),
+//       'medium' => $this->t('Medium'),
+//       'large' => $this->t('Large'),
+//     ],
+//     '#default_value' => $this->getSetting('size'),
+//   ];
+
+//   return $element;
+// }
 
 }

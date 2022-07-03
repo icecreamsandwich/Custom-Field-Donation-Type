@@ -12,9 +12,9 @@ use Drupal\Core\Ajax\HtmlCommand;
  * Defines the 'custom_field_donation_type_donation_type' field widget.
  *
  * @FieldWidget(
- *   id = "custom_field_donation_type_donation_type",
+ *   id = "custom_field_donation_type_widget",
  *   label = @Translation("Donation Type"),
- *   field_types = {"string"},
+ *   field_types = {"custom_field_donation_type_donation_type"},
  * )
  */
 class DonationTypeWidget extends WidgetBase {
@@ -101,6 +101,41 @@ class DonationTypeWidget extends WidgetBase {
     }
     
     return $options;
+  }
+
+    /**
+   * {@inheritdoc}
+   */
+  public static function defaultSettings() {
+    return [
+      'schema' => 'dataset',
+    ] + parent::defaultSettings();
+  }
+
+//   /**
+//  * {@inheritdoc}
+//  */
+//   public function settingsForm(array $form, FormStateInterface $form_state) {
+//     $element['size'] = [
+//       '#type' => 'number',
+//       '#title' => $this->t('Size of textfield'),
+//       '#default_value' => $this->getSetting('size'),
+//       '#required' => TRUE,
+//       '#min' => 1,
+//     ];
+
+//     return $element;
+//   }
+
+   /**
+   * {@inheritdoc}
+   */
+  public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
+    $new_values = [];
+    foreach ($values as $delta => $value) {
+      $new_values[$delta] = $value['value1'] + $value['value2'];
+    }
+    return $new_values;
   }
 
 }
