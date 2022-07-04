@@ -97,7 +97,11 @@ class DonationTypeWidget extends WidgetBase {
     $options = [];
     if ($selected_value == 'offline') {
       // load whatever options belong to the value of $selected_value
-      $options = array(t('Cash'), t('Check'));
+      $options = array(
+        'Cash' => 'Cash',
+        'Check' => 'Check'
+      );
+      //array(t('Cash'), t('Check'));
     }
     
     return $options;
@@ -133,7 +137,7 @@ class DonationTypeWidget extends WidgetBase {
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     $new_values = [];
     foreach ($values as $delta => $value) {
-      $new_values[$delta] = $value['value1'] + $value['value2'];
+      $new_values[$delta] = $value['value1'].':'.$value['value2'];
     }
     return $new_values;
   }

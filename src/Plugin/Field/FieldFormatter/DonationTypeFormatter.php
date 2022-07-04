@@ -32,22 +32,4 @@ class DonationTypeFormatter extends FormatterBase {
 
     return $element;
   }
-
-//   /**
-//  * {@inheritdoc}
-//  */
-// public function settingsForm(array $form, FormStateInterface $form_state) {
-//   $form['text_length'] = [
-//     '#title' => $this->t('Text length'),
-//     '#type' => 'select',
-//     '#options' => [
-//       'short' => $this->t('Short'),
-//       'long' => $this->t('Long'),
-//     ],
-//     '#default_value' => $this->getSetting('text_length'),
-//   ];
-
-//   return $form;
-// }
-
 }

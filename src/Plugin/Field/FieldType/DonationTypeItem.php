@@ -111,25 +111,4 @@ public static function defaultFieldSettings() {
   ] + parent::defaultFieldSettings();
 }
 
-// /**
-//  * {@inheritdoc}
-//  */
-// public function fieldSettingsForm(array $form, FormStateInterface $form_state) {
-  
-//   $element = [];
-//   // The key of the element should be the setting name
-//   $element['size'] = [
-//     '#title' => $this->t('Size'),
-//     '#type' => 'select',
-//     '#options' => [
-//       'small' => $this->t('Small'),
-//       'medium' => $this->t('Medium'),
-//       'large' => $this->t('Large'),
-//     ],
-//     '#default_value' => $this->getSetting('size'),
-//   ];
-
-//   return $element;
-// }
-
 }
