@@ -51,23 +51,7 @@ class DonationTypeItem extends FieldItemBase {
     return $properties;
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getConstraints() {
-    $constraints = parent::getConstraints();
 
-    $constraint_manager = \Drupal::typedDataManager()->getValidationConstraintManager();
-
-    // @DCG Suppose our value must not be longer than 10 characters.
-    $options['value']['Length']['max'] = 10;
-
-    // @DCG
-    // See /core/lib/Drupal/Core/Validation/Plugin/Validation/Constraint
-    // directory for available constraints.
-    $constraints[] = $constraint_manager->create('ComplexData', $options);
-    return $constraints;
-  }
 
   /**
    * {@inheritdoc}

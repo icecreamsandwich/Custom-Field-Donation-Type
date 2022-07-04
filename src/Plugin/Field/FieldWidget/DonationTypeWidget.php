@@ -37,16 +37,6 @@ class DonationTypeWidget extends WidgetBase {
     '#empty_option' => '---',
     '#default_value' => $selected_value1,
     '#weight' => 1,
-    // '#ajax' => [
-    //   'event' => 'change',
-    //   'method' => 'html',
-    //   'callback' => [$this, 'getValues'],
-    //   'wrapper' => $wrapper_id,
-    //   'progress' => [
-    //     'type' => 'throbber',
-    //     'message' => NULL,
-    //   ],
-    // ],
     '#attributes' => [
       'name' => 'field_donation_type',
     ],
@@ -135,8 +125,9 @@ class DonationTypeWidget extends WidgetBase {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     $new_values = [];
+    $form_values = $form_state->getUserInput();
     foreach ($values as $delta => $value) {
-      $new_values[$delta] = $value['value1'].':'.$value['value2'];
+      $new_values[$delta] = $form_values['field_donation_type'].':'.$value['value2'];
     }
     return $new_values;
   }
