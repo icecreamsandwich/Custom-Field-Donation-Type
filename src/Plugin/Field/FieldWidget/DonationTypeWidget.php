@@ -23,8 +23,8 @@ class DonationTypeWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-  $id = $this->fieldDefinition->getUniqueIdentifier();
-  $wrapper_id = "XXX-$id-$delta-replace";
+  // $id = $this->fieldDefinition->getUniqueIdentifier();
+  // $wrapper_id = "XXX-$id-$delta-replace";
   $value1_options = array(
     'online' => 'online',
     'offline' => 'offline'
@@ -35,28 +35,29 @@ class DonationTypeWidget extends WidgetBase {
     '#type' => 'select',
     '#options' => $value1_options,
     '#empty_option' => '---',
-    '#default_value' => '',
+    '#default_value' => $selected_value1,
     '#weight' => 1,
-    '#ajax' => [
-      'event' => 'change',
-      'method' => 'html',
-      'callback' => [$this, 'getValues'],
-      'wrapper' => $wrapper_id,
-      'progress' => [
-        'type' => 'throbber',
-        'message' => NULL,
-      ],
-    ],
+    // '#ajax' => [
+    //   'event' => 'change',
+    //   'method' => 'html',
+    //   'callback' => [$this, 'getValues'],
+    //   'wrapper' => $wrapper_id,
+    //   'progress' => [
+    //     'type' => 'throbber',
+    //     'message' => NULL,
+    //   ],
+    // ],
     '#attributes' => [
       'name' => 'field_donation_type',
     ],
   ];
 
+  $selected_value2 = $items[$delta]->value2 ?? 0;
   $element['value2'] = [
     '#type' => 'radios',
     '#title' => t('Select Offline Type'),
-    '#default_value' => '',
-    '#options' => $this->loadOptions($selected_value1), //array(t('Optional'), t('Required'))
+    '#default_value' => $selected_value2,
+    '#options' => $this->loadOptions($selected_value1),
     '#id' => 'al1',
     '#title_display' =>'Offline Type'
   ];
@@ -101,9 +102,7 @@ class DonationTypeWidget extends WidgetBase {
         'Cash' => 'Cash',
         'Check' => 'Check'
       );
-      //array(t('Cash'), t('Check'));
     }
-    
     return $options;
   }
 
